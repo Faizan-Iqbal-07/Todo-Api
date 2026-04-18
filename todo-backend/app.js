@@ -4,9 +4,8 @@ const path = require('path');
 const express = require('express');
 const { default: mongoose } = require('mongoose');
 const cors = require('cors');
-const DB_PATH = "mongodb+srv://faizaniqbal2911_db_user:faizan313@clustertest.dqwpbhq.mongodb.net/todo?appName=ClusterTest";
 
-
+const DB_PATH = "mongodb+srv://Faizan:faizan313@todi-api.dwhuxvy.mongodb.net/todo?appName=todi-api"
 const todoItemsRouter = require("./routes/todoItemsRouter")
 const errorsController = require("./controllers/errors");
 
@@ -21,6 +20,9 @@ app.use("/api/todo", todoItemsRouter);
 app.use(errorsController.pageNotFound);
 
 const PORT = 3001;
+
+const dns = require('dns');
+dns.setServers(["8.8.8.8" ,"1.1.1.1"])
 
 mongoose.connect(DB_PATH).then(() => {
   console.log('Connected to Mongo');
