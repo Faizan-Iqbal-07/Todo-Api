@@ -21,9 +21,6 @@ app.use(errorsController.pageNotFound);
 
 const PORT = 3001;
 
-const dns = require('dns');
-dns.setServers(["8.8.8.8" ,"1.1.1.1"])
-
 mongoose.connect(DB_PATH).then(() => {
   console.log('Connected to Mongo');
   app.listen(PORT, () => {
